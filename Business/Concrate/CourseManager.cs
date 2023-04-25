@@ -28,7 +28,7 @@ namespace Business.Concrate
 
         public IDataResult<List<Course>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Course>>(_courseDal.GetAll());
         }
 
         public IDataResult<Course> GetById(int courseId)

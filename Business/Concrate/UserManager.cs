@@ -32,7 +32,12 @@ namespace Business.Concrate
 
         public IDataResult<User> GetByMail(string email)
         {
-            return new SuccessDataResult<User>(_userDal.Get(u => u.Email == email));
+            var result = _userDal.Get(u => u.Email == email);
+            if(result!=null)
+            {
+                return new SuccessDataResult<User>(result);
+            }
+            return new ErrorDataResult<User>("Mail bulunamadı");
         }
 
         public IDataResult<List<User>> GetAll()

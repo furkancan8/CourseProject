@@ -16,5 +16,6 @@ namespace Business.Abstract
         IDataResult<User> ChangePassword(string password, int id);
         IResult UserExists(string email);
         IDataResult<AccessToken> CreateAccessToken(User user);
+        void SendMailOfChangePassword(string email, string randomCode);
     }
 }

@@ -14,6 +14,8 @@ namespace Core.Entities.Concrate
         public bool Status { get; set; }
         public string Number { get; set; }
         public bool IsSendMail { get; set; }
+        public string ImageUrl { get; set; }
+        public bool VerifyEmail { get; set; }
 
     }
 }

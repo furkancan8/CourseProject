@@ -26,14 +26,26 @@ namespace Business.DependecnyResoivers.Autofac
             builder.RegisterType<CourseManager>().As<ICourseService>();
             builder.RegisterType<EfCourseDal>().As<ICourseDal>();
 
+            builder.RegisterType<CategoryManager>().As<ICategoryService>();
+            builder.RegisterType<EfCategoryDal>().As<ICategoryDal>();
+
             builder.RegisterType<PaymentManager>().As<IPaymentService>();
             builder.RegisterType<EfPaymentDal>().As<IPaymentDal>();
 
+            builder.RegisterType<TeacherCourseManager>().As<ITeacherCourseService>();
+            builder.RegisterType<EfTeacherCourseDal>().As<ITeacherCourseDal>();
+
+            builder.RegisterType<TeacherManager>().As<ITeacherService>();
+            builder.RegisterType<EfTeacherDal>().As<ITeacherDal>();
 
             builder.RegisterType<CourseUserManager>().As<ICourseUserService>();
             builder.RegisterType<EfCourseUserDal>().As<ICourseUserDal>();
+
             builder.RegisterType<UserContactManager>().As<IUserContactService>();
             builder.RegisterType<EfUserContactDal>().As<IUserContactDal>();
+
+            builder.RegisterType<UserVerifyManager>().As<IUserVerifyService>();
+            builder.RegisterType<EfUserVerifyDal>().As<IUserVerifyDal>();
 
             builder.RegisterType<AuthManager>().As<IAuthService>();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();

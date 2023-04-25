@@ -16,11 +16,15 @@ namespace DataAccess.Concrate.EntityFramework
         }
         public DbSet<CourseUser> CourseUser{ get; set; }
         public DbSet<Course> Courses { get; set; }
+        public DbSet<Category> Categories{ get; set; }
         public DbSet<UserContact> UserContact { get; set; }
         public DbSet<Payment> Payment{ get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<UserVerify> userVerifyCodes{ get; set; }
         public DbSet<OperationClaim> OperationClaims { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
+        public DbSet<TeacherCourse> TeacherCourse { get; set; }
+        public DbSet<Teacher> Teachers { get; set; }
 
     }
 }
