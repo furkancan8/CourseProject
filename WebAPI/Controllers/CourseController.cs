@@ -23,5 +23,35 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+        [HttpGet("getallteachingcourse")]
+        public IActionResult GetAllTeachingCourse(int teacherId)
+        {
+            var result = _courseService.GetAllTeacherOfCourse(teacherId);
+            if(result!=null)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        [HttpGet("getcourse")]
+        public IActionResult GetCourseId(int courseId)
+        {
+            var result = _courseService.GetCourseById(courseId);
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        [HttpGet("getallcoursebycateogry")]
+        public IActionResult GetAllCourseByCategory(int categoryId)
+        {
+            var result = _courseService.GetAllCategoryByCourse(categoryId);
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Core.Utilities.Results;
+using DataAccess.Abstract;
 using Entities.Concrate;
 using System;
 using System.Collections.Generic;
@@ -9,10 +10,10 @@ namespace Business.Concrate
 {
     public class VideoDetailsManager : IVideoDetailsService
     {
-        IVideoDetailsService _videoDetailsService;
-        public VideoDetailsManager(IVideoDetailsService videoDetailsService)
+        IVideoDetailsDal _videoDetailsDal;
+        public VideoDetailsManager(IVideoDetailsDal videoDetailsDal)
         {
-            _videoDetailsService = videoDetailsService;
+            _videoDetailsDal = videoDetailsDal;
         }
 
         public IResult Add(VideoDetail videoDetail)
@@ -32,7 +33,7 @@ namespace Business.Concrate
 
         public IDataResult<VideoDetail> GetById(int videoDetailId)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<VideoDetail>(_videoDetailsDal.Get(i=>i.Id== videoDetailId));
         }
 
         public IResult Update(VideoDetail videoDetail)

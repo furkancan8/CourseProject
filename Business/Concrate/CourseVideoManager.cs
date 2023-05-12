@@ -30,6 +30,11 @@ namespace Business.Concrate
             throw new NotImplementedException();
         }
 
+        public IDataResult<List<CourseVideo>> GetAllVideoByCourse(int courseId)
+        {
+            return new SuccessDataResult<List<CourseVideo>>(_courseVideoDal.GetAll(i => i.CourseId == courseId));
+        }
+
         public IDataResult<CourseVideo> GetById(int courseVideoId)
         {
             throw new NotImplementedException();

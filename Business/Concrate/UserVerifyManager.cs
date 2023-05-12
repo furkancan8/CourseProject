@@ -45,6 +45,27 @@ namespace Business.Concrate
             await ScheduleDelete(userVerify.Id);
             return new SuccessResult();
         }
+        public async Task<IResult> VerifyEmailUserAdd(UserVerify userVerify,int userId)
+        {
+            var user = _userDal.Get(i => i.Id == userId);
+            Random random = new Random();
+            var rdnCode = random.Next(100000, 999999);
+            userVerify.RandomCode = rdnCode.ToString();
+            var userResult = _userVerifyDal.Get(i => i.UserMail == user.Email);
+            var result = BusinessRules.Run(
+                       CheckIfSameNotMail(user.Email));
+            if (result != null)
+            {
+                userResult.RandomCode = rdnCode.ToString();
+                _userVerifyDal.Update(userResult);
+                _authService.SendMailOfChangePassword(userResult.UserMail, userResult.RandomCode);
+                return new SuccessResult();
+            }
+            _userVerifyDal.Add(userVerify);
+            _authService.SendMailOfChangePassword(userVerify.UserMail, userVerify.RandomCode);
+            await ScheduleDelete(userVerify.Id);
+            return new SuccessResult();
+        }
         private async Task ScheduleDelete(int userId)
         {
 

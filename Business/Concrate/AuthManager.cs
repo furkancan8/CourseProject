@@ -10,6 +10,8 @@ using System.Collections.Generic;
 using System.Net.Mail;
 using System.Net;
 using System.Text;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 
 namespace Business.Concrate
 {
@@ -88,7 +90,12 @@ namespace Business.Concrate
             var accessToken = _tokenHelper.CreateToken(user, claims.Data);
             return new SuccessDataResult<AccessToken>(accessToken, Messages.AccessTokenCreated);
         }
-
+        public IDataResult<DecodeAccessToken> DecodeAccessToken(User user)
+        {
+            var claims = _userService.GetClaims(user);
+            var accessToken = _tokenHelper.DecodeToken();
+            return new SuccessDataResult<DecodeAccessToken>(accessToken,"Token çözümleme başarılı");
+        }
         public void SendMailOfChangePassword(string email,string randomCode)
         {
                 SmtpClient smtpClient = new SmtpClient();

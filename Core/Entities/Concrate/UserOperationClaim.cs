@@ -1,4 +1,8 @@
-﻿namespace Core.Entities.Concrate
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Core.Entities.Concrate
 {
     public class UserOperationClaim:IEntity
     {

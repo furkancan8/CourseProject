@@ -6,8 +6,7 @@ using System.Text;
 
 namespace DataAccess.Abstract
 {
-    public interface IUserOperationClaimDal : IEntityRepository<UserOperationClaim>
+    public interface IUserOperationClaimDal:IEntityRepository<UserOperationClaim>
     {
-        public List<OperationClaim> GetOperationClaim();
     }
 }

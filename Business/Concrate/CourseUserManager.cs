@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Core.Entities.Concrate;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entity.Concrate;
@@ -34,6 +35,11 @@ namespace Business.Concrate
         public IDataResult<CourseUser> GetById(int courseUserId)
         {
             throw new NotImplementedException();
+        }
+
+        public IDataResult<List<CourseUser>> GetByCourseId(int courseId)
+        {
+            return new SuccessDataResult<List<CourseUser>>(_courseUserDal.GetAll(i => i.CourseId == courseId));
         }
 
         public IDataResult<List<CourseUser>> GetByUserId(int userId)

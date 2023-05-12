@@ -36,6 +36,16 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+        [HttpPost("verifyemailuseradd")]
+        public IActionResult VerifyEmailUserAdd(UserVerify userVerify,int userId)
+        {
+            var result = _userVerifyService.VerifyEmailUserAdd(userVerify, userId);
+            if(result!=null)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
         [HttpDelete("delete")]
         public IActionResult Delete(int userVerifyId)
         {

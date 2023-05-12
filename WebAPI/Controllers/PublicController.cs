@@ -13,26 +13,14 @@ namespace WebAPI.Controllers
     [ApiController]
     public class PublicController : ControllerBase
     {
-        ICategoryService _categoryService;
         IUserService _userService;
         private readonly IWebHostEnvironment _hostEnvironment;
-        public PublicController(ICategoryService categoryService,
-         IWebHostEnvironment hostEnvironment, IUserService userService)
+        public PublicController(IWebHostEnvironment hostEnvironment, IUserService userService)
         {
-            _categoryService = categoryService;
             _hostEnvironment = hostEnvironment;
             _userService = userService;
         }
-        [HttpGet("getallcategory")]
-        public IActionResult GetAllCategory()
-        {
-            var result = _categoryService.GetAll();
-            if(result!=null)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
+
         [HttpPost("getimagefile")]
         public async Task<IActionResult> GetImageFile(IFormFile file,int userId)
         {
@@ -48,7 +36,6 @@ namespace WebAPI.Controllers
             var userImageName = user.Data.ImageUrl = fileNameWithRandomNumber;
             _userService.Update(user.Data);
             return Ok();
-        }
-
+        }   
     }
 }

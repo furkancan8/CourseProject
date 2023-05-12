@@ -11,10 +11,12 @@ namespace Business.Abstract
     public interface IUserVerifyService
     {
         Task<IResult >Add(UserVerify userVerify);
+        Task<IResult >VerifyEmailUserAdd(UserVerify userVerify,int userId);
         IResult Update(UserVerify userVerify);
         IResult Delete(int userVerifyId);
         IDataResult<List<UserVerify>> GetAll();
         IDataResult<UserVerify> GetById(int userVerifyId);
         IDataResult<UserVerify> GetByMail(string userMail);
+
     }
 }

@@ -12,7 +12,10 @@ namespace Business.Abstract
         IResult Update(Course course);
         IResult Delete(int courseId);
         IDataResult<List<Course>> GetAll();
+        IDataResult<List<Course>> GetAllCategoryByCourse(int categoryId);
         IDataResult<Course> GetById(int courseId);
+        IDataResult<List<Course>> GetAllTeacherOfCourse(int teacherId);
         IDataResult<Course> GetCourseById(int courseId);
+
     }
 }

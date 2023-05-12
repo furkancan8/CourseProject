@@ -12,6 +12,7 @@ namespace Business.Abstract
         IResult Update(CourseVideo courseVideo);
         IResult Delete(int courseVideoId);
         IDataResult<List<CourseVideo>> GetAll();
+        IDataResult<List<CourseVideo>> GetAllVideoByCourse(int courseId);
         IDataResult<CourseVideo> GetById(int courseVideoId);
     }
 }

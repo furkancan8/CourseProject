@@ -31,6 +31,21 @@ namespace Business.Concrate
             return new SuccessDataResult<List<Course>>(_courseDal.GetAll());
         }
 
+        public IDataResult<List<Course>> GetAllCategoryByCourse(int categoryId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IDataResult<List<Course>> GetAllCourseByCategory(int categoryId)
+        {
+            return new SuccessDataResult<List<Course>>(_courseDal.GetAll(i => i.CategoryId == categoryId));
+        }
+
+        public IDataResult<List<Course>> GetAllTeacherOfCourse(int teacherId)
+        {
+            return new SuccessDataResult<List<Course>>(_courseDal.GetAll(i => i.TeacherId == teacherId)); ;
+        }
+
         public IDataResult<Course> GetById(int courseId)
         {
             throw new NotImplementedException();

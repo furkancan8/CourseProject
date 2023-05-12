@@ -33,7 +33,7 @@ namespace Business.Concrate
 
         public IDataResult<Category> GetById(int categoryId)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Category>(_categoryDal.Get(i => i.Id == categoryId));
         }
 
         public IResult Update(Category course)

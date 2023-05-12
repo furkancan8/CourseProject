@@ -1,6 +1,7 @@
 ﻿using Core.Entities.Concrate;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 
 namespace Core.Utilities.Security.JWT
@@ -9,8 +10,8 @@ namespace Core.Utilities.Security.JWT
     {//kulanıcının verdigi bilgileri api bilgiler dogru ise veritabanına gidip claimleri buluşturup bir token
      //oluşturcak ve kullanıcıya vericek
         AccessToken CreateToken(User user, List<OperationClaim> operationClaims);
-
-
+        DecodeAccessToken DecodeToken();
+        //List<OperationClaim> claims
 
     }
 }

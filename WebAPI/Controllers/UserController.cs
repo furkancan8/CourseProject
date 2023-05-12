@@ -64,14 +64,29 @@ namespace WebAPI.Controllers
         public IActionResult Update(User user, int id)
         {
             var result = _userService.GetById(id);
-            result.Data.FullName = user.FullName;
-            result.Data.Email = user.Email;
-            result.Data.Number= user.Number;
-            result.Data.IsSendMail = user.IsSendMail;
+            if(user.FullName!=null)
+            {
+                result.Data.FullName = user.FullName;
+            }
             if (user.Email != null)
             {
                 result.Data.Email = user.Email;
             }
+            if (user.Number != null)
+            {
+                result.Data.Number = user.Number;
+            }
+            if(user.Email != null&& user.FullName != null&&
+            user.VerifyEmail==false)
+            {
+                result.Data.IsSendMail = user.IsSendMail;
+            }
+            if (user.Number == null && user.Email == null && user.FullName == null &&
+            user.IsSendMail == false)
+            {
+                result.Data.VerifyEmail = user.VerifyEmail;
+            }
+
             var update = _userService.Update(result.Data);
             if (update != null)
             {

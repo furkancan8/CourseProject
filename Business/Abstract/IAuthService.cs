@@ -4,6 +4,7 @@ using Core.Utilities.Security.JWT;
 using Entity.DTOs;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 
 namespace Business.Abstract
@@ -16,6 +17,7 @@ namespace Business.Abstract
         IDataResult<User> ChangePassword(string password, int id);
         IResult UserExists(string email);
         IDataResult<AccessToken> CreateAccessToken(User user);
+        IDataResult<DecodeAccessToken> DecodeAccessToken(User user);
         void SendMailOfChangePassword(string email, string randomCode);
     }
 }

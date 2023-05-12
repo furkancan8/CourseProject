@@ -16,6 +16,10 @@ namespace Core.Entities.Concrate
         public bool IsSendMail { get; set; }
         public string ImageUrl { get; set; }
         public bool VerifyEmail { get; set; }
+        public string Linkedln { get; set; }
+        public string Github { get; set; }
+        public string UserName { get; set; }
+
 
     }
 }

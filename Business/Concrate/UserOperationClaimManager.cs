@@ -8,45 +8,42 @@ using System.Text;
 
 namespace Business.Concrate
 {
-    public class UserOperationClaimManager: IUserOperationClaimService
+    public class UserOperationClaimManager : IUserOperationClaimService
     {
-        IUserOperationClaimDal _claimDal;
-        public UserOperationClaimManager(IUserOperationClaimDal claimDal)
+        IUserOperationClaimDal _userOperationClaimDal;
+        public UserOperationClaimManager(IUserOperationClaimDal userOperationClaimDal)
         {
-            _claimDal = claimDal;
+            _userOperationClaimDal = userOperationClaimDal;
         }
 
-        public IResult Add(UserOperationClaim claim)
+        public IResult Add(UserOperationClaim userClaim)
         {
-            _claimDal.Add(claim);
-            return new SuccessResult();
+            throw new NotImplementedException();
         }
 
-        public IResult Delete(int claimId)
+        public IResult Delete(int userClaimId)
         {
-            _claimDal.Delete(claimId);
-            return new SuccessResult();
+            throw new NotImplementedException();
         }
 
         public IDataResult<List<UserOperationClaim>> GetAll()
         {
-            return new SuccessDataResult<List<UserOperationClaim>>(_claimDal.GetAll());
+            return new SuccessDataResult<List<UserOperationClaim>>(_userOperationClaimDal.GetAll());
         }
 
-        public IDataResult<UserOperationClaim> GetById(int claimId)
+        public IDataResult<List<UserOperationClaim>> GetAllTeacherByClaim()
         {
-            return new SuccessDataResult<UserOperationClaim>(_claimDal.Get(i => i.Id == claimId));
+            return new SuccessDataResult<List<UserOperationClaim>>(_userOperationClaimDal.GetAll(i=>i.OperationClaimId==2));
         }
 
-        public IDataResult<List<OperationClaim>> GetOperationClaim()
+        public IDataResult<UserOperationClaim> GetById(int userClaimId)
         {
-            return new SuccessDataResult<List<OperationClaim>>(_claimDal.GetOperationClaim());
+            throw new NotImplementedException();
         }
 
-        public IResult Update(UserOperationClaim claim)
+        public IResult Update(UserOperationClaim userClaim)
         {
-            _claimDal.Update(claim);
-            return new SuccessResult();
+            throw new NotImplementedException();
         }
     }
 }

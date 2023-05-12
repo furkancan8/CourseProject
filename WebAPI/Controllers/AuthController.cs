@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Core.Entities.Concrate;
+using Core.Utilities.Security.JWT;
 using Entity.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -67,6 +69,16 @@ namespace WebAPI.Controllers
         {
             var result = _authService.VerifyPassword(userForLoginDto);
             if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        [HttpGet("decodetoken")]
+        public ActionResult DecodeToken(User user)
+        {
+            var result = _authService.DecodeAccessToken(user);
+            if(result!=null)
             {
                 return Ok(result);
             }

@@ -9,13 +9,15 @@ namespace WebAPI.Controllers
     public class TeacherController : ControllerBase
     {
         ITeacherCourseService _courseService;
-        ITeacherService _teacherService;
-        public TeacherController(ITeacherCourseService courseService, ITeacherService teacherService)
+
+        ITeacherStudentService _teacherStudentService;
+
+        public TeacherController(ITeacherCourseService courseService, ITeacherStudentService studentService)
         {
             _courseService = courseService;
-            _teacherService = teacherService;
+            _teacherStudentService = studentService;
         }
-        [HttpGet("getteachercourse")]
+        [HttpGet("getteacher")]
         public IActionResult GetTeacherOfCourse(int teacherId)
         {
             var result = _courseService.GetTeacherId(teacherId);
@@ -25,10 +27,10 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
-        [HttpGet("getallteacher")]
-        public IActionResult GetAllTeacher()
+        [HttpGet("getallteacherofstudent")]
+        public IActionResult GetAllTeacherOfStudent(int teacherId)
         {
-            var result = _teacherService.GetAll();
+            var result = _teacherStudentService.GetAllTeacherOfStudent(teacherId);
             if (result != null)
             {
                 return Ok(result);
