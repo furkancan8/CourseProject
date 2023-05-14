@@ -28,6 +28,7 @@ namespace DataAccess.Concrate.EntityFramework
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
         public DbSet<SupportContact> SupportContacts { get; set; }
         public DbSet<SoldCourse> SoldCourses{ get; set; }
+        public DbSet<Teacher> Teachers{ get; set; }
         public DbSet<TeacherStudentContact> TeacherStudentContacts { get; set; }
         public DbSet<TeacherCourse> TeacherCourse { get; set; }
         public DbSet<TeacherStudent> TeacherStudents { get; set; }

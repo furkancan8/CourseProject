@@ -53,5 +53,17 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+        [HttpGet("getcoursebyname")]
+        public IActionResult GetAllCourseByCategory(string name)
+        {
+            var resultName=name.Replace("sharp","#");
+            var resultName2= resultName.Replace("plus","+");
+            var result = _courseService.GetCourseByName(resultName2);
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }

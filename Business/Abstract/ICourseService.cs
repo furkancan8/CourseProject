@@ -16,6 +16,7 @@ namespace Business.Abstract
         IDataResult<Course> GetById(int courseId);
         IDataResult<List<Course>> GetAllTeacherOfCourse(int teacherId);
         IDataResult<Course> GetCourseById(int courseId);
+        IDataResult<Course> GetCourseByName(string courseName);
 
     }
 }

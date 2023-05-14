@@ -38,6 +38,9 @@ namespace Business.DependecnyResoivers.Autofac
             builder.RegisterType<PaymentManager>().As<IPaymentService>();
             builder.RegisterType<EfPaymentDal>().As<IPaymentDal>();
 
+            builder.RegisterType<TeacherManager>().As<ITeacherService>();
+            builder.RegisterType<EfTeacherDal>().As<ITeacherDal>();
+
             builder.RegisterType<TeacherCourseManager>().As<ITeacherCourseService>();
             builder.RegisterType<EfTeacherCourseDal>().As<ITeacherCourseDal>();
 
