@@ -56,11 +56,6 @@ namespace Business.Concrate
             return new SuccessDataResult<Course>(_courseDal.Get(i=>i.CourseId== courseId));
         }
 
-        public IDataResult<Course> GetCourseByName(string courseName)
-        {
-            return new SuccessDataResult<Course>(_courseDal.Get(i => i.Name == courseName));
-        }
-
         public IResult Update(Course course)
         {
             throw new NotImplementedException();

@@ -19,8 +19,6 @@ namespace Core.Entities.Concrate
         public string Linkedln { get; set; }
         public string Github { get; set; }
         public string UserName { get; set; }
-        public string Role { get; set; }
-
 
 
     }

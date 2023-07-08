@@ -13,7 +13,6 @@ namespace Entities.Concrate
         public string Image { get; set; }
         public int TeacherId { get; set; }
         public int CategoryId { get; set; }
-        public DateTime CreateDate { get; set; } = DateTime.Now;
 
     }
 }
